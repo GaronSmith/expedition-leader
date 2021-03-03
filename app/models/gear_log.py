@@ -13,6 +13,9 @@ class GearLog(db.Model):
     cost = db.Column(db.Integer)
     quantity = db.Column(db.Integer, nullable=False, default = 1 )
 
+    owner = db.relationship("User", back_populates='users')
+    trips = db.relationship("Trips", secondary="trip_gear_items", back_populates="trips")
+
     def to_dict(self):
         return {
             "id": self.id,
