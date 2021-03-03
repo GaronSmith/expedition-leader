@@ -9,7 +9,7 @@ class TripMember(db.Model):
     accepted = db.Column(db.Boolean, nullable=False, default=False)
     leader = db.Column(db.Boolean, nullable=False, default=False)
 
-    
+    trip = db.relationship("Trip", back_populates='trips')    
     def to_dict(self):
         return {
             "id": self.id,

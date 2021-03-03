@@ -9,6 +9,8 @@ class Trip(db.Model):
     date = db.Column (db.DateTime, nullable=False)
 
     group = db.relationship('Group', back_populates="group")
+    members = db.relationship("TripMember", back_populates='trip_members')
+    gear = db.relationship("GearLog", secondary='trip_gear_items', back_populates='gear_logs')
     def to_dict(self):
         return {
             "id": self.id,
