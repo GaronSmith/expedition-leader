@@ -7,9 +7,10 @@ class Group(db.Model):
     name = db.Column(db.String(255), nullable = False)
 
     trips = db.relationship("Trip", back_populates="trips")
-    
+
     def to_dict(self):
         return {
             "id": self.id,
-            "name": self.name
+            "name": self.name,
+            "trips": self.trips
         }
