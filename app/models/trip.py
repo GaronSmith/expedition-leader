@@ -8,6 +8,7 @@ class Trip(db.Model):
     destination = db.Column(db.String(255), nullable=False)
     date = db.Column (db.DateTime, nullable=False)
 
+    group = db.relationship('Group', back_populates="group")
     def to_dict(self):
         return {
             "id": self.id,
