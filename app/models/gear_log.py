@@ -1,6 +1,6 @@
 from .db import db
 from datetime import datetime
-# from .trip_gear_item import trip_gear_items
+from .trip_gear_item import trip_gear_items
 
 class GearLog(db.Model):
     __tablename__ = 'gear_logs'
@@ -16,7 +16,7 @@ class GearLog(db.Model):
     quantity = db.Column(db.Integer, nullable=False, default=1)
 
     owner = db.relationship("User", back_populates='gear')
-    # trips = db.relationship("Trip", secondary=trip_gear_items, back_populates="trip_gear")
+    trips = db.relationship("Trip", secondary=trip_gear_items, back_populates="trip_gear")
     category = db.relationship("GearCategory", back_populates='gear_item')
 
     def to_dict(self):
