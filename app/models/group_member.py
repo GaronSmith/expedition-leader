@@ -1,6 +1,6 @@
 from .db import db
 
-class Group_Member(db.Model):
+class GroupMember(db.Model):
     __tablename__ = 'group_members'
 
     id = db.Column(db.Integer, primary_key=True)

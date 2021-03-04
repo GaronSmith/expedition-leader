@@ -20,8 +20,8 @@ class User(db.Model, UserMixin):
   qr_image_url = db.Column(db.String, nullable = False)
   created_at = db.Column(db.DateTime, nullable = False, default = datetime.now())
 
-  gear = db.relationship('GearLog', back_populates="gear_logs")
-  trips = db.relationship("Trips", secondary='trip_members', back_populates='trip_members')
+  gear = db.relationship('GearLog', back_populates="owner")
+  trips = db.relationship("Trip", secondary='trip_members', back_populates='members')
 
   @property
   def password(self):
