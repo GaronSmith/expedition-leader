@@ -15,6 +15,7 @@ class GearLog(db.Model):
 
     owner = db.relationship("User", back_populates='users')
     trips = db.relationship("Trips", secondary="trip_gear_items", back_populates="trips")
+    category = db.relationship("GearCategories", back_populates='gear_categories')
 
     def to_dict(self):
         return {
