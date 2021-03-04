@@ -7,6 +7,7 @@ class Group(db.Model):
     name = db.Column(db.String(255), nullable = False)
 
     trips = db.relationship("Trip", back_populates="trips")
+    members = db.relationship("GroupMember", back_populates="group_members")
 
     def to_dict(self):
         return {
