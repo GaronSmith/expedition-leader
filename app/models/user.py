@@ -21,6 +21,7 @@ class User(db.Model, UserMixin):
   created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
   gear = db.relationship('GearLog', back_populates="owner", cascade="all,delete-orphan")
+  groups = db.relationship("Group", secondary="group_members", back_populates= 'members')
   # trips = db.relationship("Trip", secondary='trip_members', back_populates='members')
 
   @property
