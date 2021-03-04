@@ -2,6 +2,8 @@ from .db import db
 from datetime import datetime
 
 class Trip(db.Model):
+    __tablename__ = 'trips'
+
     id = db.Column(db.Integer, primary_key=True)
     group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False)
     name = db.Column(db.String(255), nullable=False)
