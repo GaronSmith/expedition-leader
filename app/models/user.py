@@ -7,8 +7,8 @@ class User(db.Model, UserMixin):
   __tablename__ = 'users'
 
   id = db.Column(db.Integer, primary_key = True)
-  first_name = db.Column(db.string(50, nullable = False))
-  last_name = db.Column(db.string(50, nullable = False))
+  first_name = db.Column(db.String(50), nullable=False)
+  last_name = db.Column(db.String(50), nullable = False)
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable = False)
   image_url = db.Column(db.Text)
@@ -22,7 +22,7 @@ class User(db.Model, UserMixin):
 
   gear = db.relationship('GearLog', back_populates="gear_logs")
   trips = db.relationship("Trips", secondary='trip_members', back_populates='trip_members')
-  
+
   @property
   def password(self):
     return self.hashed_password
