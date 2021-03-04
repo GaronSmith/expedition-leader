@@ -1,15 +1,28 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from datetime import datetime 
 
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
 
   id = db.Column(db.Integer, primary_key = True)
-  username = db.Column(db.String(40), nullable = False, unique = True)
+  first_name = db.Column(db.String(50), nullable=False)
+  last_name = db.Column(db.String(50), nullable = False)
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable = False)
+  image_url = db.Column(db.Text)
+  street_address = db.Column(db.String(500))
+  town = db.Column(db.String(500))
+  state = db.Column(db.String(50))
+  zipcode = db.Column(db.Integer)
+  country = db.Column(db.String(50))
+  qr_image_url = db.Column(db.String, nullable=False)
+  created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
+  gear = db.relationship('GearLog', back_populates="owner", cascade="all,delete-orphan")
+  groups = db.relationship("Group", secondary="group_members", back_populates= 'members')
+  trips = db.relationship("Trip", secondary='trip_members', back_populates='members')
 
   @property
   def password(self):
@@ -27,7 +40,15 @@ class User(db.Model, UserMixin):
 
   def to_dict(self):
     return {
-      "id": self.id,
-      "username": self.username,
-      "email": self.email
+        "id": self.id,
+        "first_name": self.first_name,
+        "last_name": self.last_name,
+        "email": self.email,
+        "image_url": self.image_url,
+        "street_address": self.street_address,
+        "town": self.town,
+        "state": self.state,
+        "zipcode": self.zipcode,
+        "country": self.country,
+        "qr_image_url": self.qr_image_url,
     }
