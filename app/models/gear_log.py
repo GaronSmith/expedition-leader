@@ -6,7 +6,7 @@ class GearLog(db.Model):
     __tablename__ = 'gear_logs'
 
     id = db.Column(db.Integer, primary_key= True)
-    owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    # owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('gear_categories.id'), nullable=False)
     manufacturer = db.Column(db.String(200))
     image_url = db.Column(db.Text)
@@ -15,7 +15,7 @@ class GearLog(db.Model):
     cost = db.Column(db.Integer)
     quantity = db.Column(db.Integer, nullable=False, default=1)
 
-    owner = db.relationship("User", back_populates='gear')
+    # owner = db.relationship("User", back_populates='gear')
     trips = db.relationship("Trip", secondary=trip_gear_items, back_populates="trip_gear")
     category = db.relationship("GearCategory", back_populates='gear_item')
 

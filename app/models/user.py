@@ -20,7 +20,7 @@ class User(db.Model, UserMixin):
   qr_image_url = db.Column(db.String, nullable=False)
   created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
-  gear = db.relationship('GearLog', back_populates="owner")
+  # gear = db.relationship('GearLog', back_populates="owner")
   trips = db.relationship("Trip", secondary='trip_members', back_populates='members')
 
   @property
