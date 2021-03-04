@@ -1,40 +1,31 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import LoginModal from "../auth/LoginModal/"
 import {useSelector} from 'react-redux'
 import './NavBar.css'
 
 const NavBar = ({ setAuthenticated }) => {
   const user = useSelector(state => state.session.user)
-  
   return (
-    <nav className='navbar__container'>
-
-      <ul>
-        <li>
-          <NavLink className="nav-link" to="/" exact={true} activeClassName="active">
+    <nav >
+      <div className='navbar__container'>
+        <div className='navbar__container-left'>
+          <NavLink className='navbar__link' to="/" exact={true} activeClassName="active">
             Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="nav-link" to="/login" exact={true} activeClassName="active">
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="nav-link" to="/sign-up" exact={true} activeClassName="active">
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="nav-link" to="/users" exact={true} activeClassName="active">
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton setAuthenticated={setAuthenticated} />
-        </li>
-      </ul>
+              </NavLink>
+        </div>
+        <div className='navbar__container-middle'>
+           Expedition Leader
+        </div>
+        <div className='navbar__container-right'>
+          {!user &&
+              <>
+                <LoginModal setAuthenticated={setAuthenticated} />
+              </>
+            }
+        </div>
+      </div>
     </nav>
   );
 }

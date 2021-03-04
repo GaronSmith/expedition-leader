@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import LoginForm from "./components/auth/LoginForm";
+// import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar/";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -34,12 +34,12 @@ function App() {
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} />
       <Switch>
-        <Route path="/login" exact={true}>
+        {/* <Route path="/login" exact={true}>
           <LoginForm
             authenticated={authenticated}
             setAuthenticated={setAuthenticated}
           />
-        </Route>
+        </Route> */}
         <Route path="/sign-up" exact={true}>
           <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
         </Route>
