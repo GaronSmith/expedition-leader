@@ -14,7 +14,7 @@ class Trip(db.Model):
 
     group = db.relationship('Group', back_populates="trips")
     members = db.relationship("User", secondary="trip_members", back_populates='trips')
-    # trip_gear = db.relationship("GearLog", secondary=trip_gear_items, back_populates='trip')
+    # trip_gear = db.relationship("GearLog", secondary=trip_gear_items, back_populates='trips')
 
     def to_dict(self):
         return {
