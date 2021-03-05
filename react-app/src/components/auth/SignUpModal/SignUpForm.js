@@ -5,6 +5,8 @@ import { signUp } from '../../../services/auth';
 const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [checked, setChecked] = useState(false)
@@ -13,11 +15,13 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [zip, setZip] = useState("");
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
+  const [imageFile, setImageFile] = useState(null)
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await signUp( email, password);
+      const user = await signUp( firstName, lastName, email, password, street, 
+        town, zip, state, country, imageFile);
       if (!user.errors) {
         setAuthenticated(true);
       } else {
@@ -51,12 +55,39 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ))}
       </div>
       <div className='form__input'>
+        <label>First Name</label>
+        <input
+          type="text"
+          name="firstName"
+          onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
+        ></input>
+      </div>
+      <div className='form__input'>
+        <label>Last Name</label>
+        <input
+          type="text"
+          name="lastName"
+          onChange={(e) => setLastName(e.target.value)}
+          value={lastName}
+        ></input>
+      </div>
+      <div className='form__input'>
         <label>Email</label>
         <input
           type="text"
           name="email"
           onChange={updateEmail}
           value={email}
+        ></input>
+      </div>
+      <div className='form__input'>
+        <label>Upload a Profile Picture</label>
+        <input
+          type="file"
+          name="imageFile"
+          onChange={(e) => setImageFile(e.target.files[0])}
+          value={imageFile}
         ></input>
       </div>
       <div className='form__input'>
