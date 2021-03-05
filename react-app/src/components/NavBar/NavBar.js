@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import SignUpFormModal from "../auth/SignUpModal/"
 import LoginModal from "../auth/LoginModal/"
 import {useSelector} from 'react-redux'
 import './NavBar.css'
@@ -22,8 +23,10 @@ const NavBar = ({ setAuthenticated }) => {
           {!user &&
               <>
                 <LoginModal setAuthenticated={setAuthenticated} />
+                <SignUpFormModal setAuthenticated={setAuthenticated} />
               </>
             }
+          {user && <LogoutButton setAuthenticated={setAuthenticated}/>}
         </div>
       </div>
     </nav>
