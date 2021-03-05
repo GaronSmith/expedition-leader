@@ -3,23 +3,27 @@ import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../services/auth';
 
 const SignUpForm = ({authenticated, setAuthenticated}) => {
-  const [username, setUsername] = useState("");
+  const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [checked, setChecked] = useState(false)
+  const [street, setStreet] = useState("");
+  const [town, setTown] = useState("");
+  const [zip, setZip] = useState("");
+  const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await signUp(username, email, password);
+      const user = await signUp( email, password);
       if (!user.errors) {
         setAuthenticated(true);
+      } else {
+        setErrors(user.errors);
       }
     }
-  };
-
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -40,16 +44,13 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
 
   return (
     <form onSubmit={onSignUp}>
-      <div>
-        <label>User Name</label>
-        <input
-          type="text"
-          name="username"
-          onChange={updateUsername}
-          value={username}
-        ></input>
+      <h1 className='form__title'>Sign Up</h1>
+      <div className='form__errors'>
+        {errors.map((error) => (
+          <div>{error}</div>
+        ))}
       </div>
-      <div>
+      <div className='form__input'>
         <label>Email</label>
         <input
           type="text"
@@ -58,7 +59,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           value={email}
         ></input>
       </div>
-      <div>
+      <div className='form__input'>
         <label>Password</label>
         <input
           type="password"
@@ -67,7 +68,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           value={password}
         ></input>
       </div>
-      <div>
+      <div className='form__input'> 
         <label>Repeat Password</label>
         <input
           type="password"
@@ -77,7 +78,65 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           required={true}
         ></input>
       </div>
-      <button type="submit">Sign Up</button>
+      <div className='form__input'> 
+        <label>Wish to sign up for delivery?</label>
+        <input
+          type="checkbox"
+          name="checkbox"
+          onChange={(e) => setChecked(!checked)}
+          checked={checked}
+        ></input>
+      </div>
+      {checked && (
+        <div className='form__address__container'>
+          <div className='form__input'>
+            <label>Street Address</label>
+            <input id="address"
+              type="text"
+              name="address"
+              onChange={(e) => setStreet(e.target.value)}
+              value={street}
+            ></input>
+          </div>
+          <div className='form__input'>
+            <label>Town</label>
+            <input 
+              type="text"
+              name="town"
+              onChange={(e) => setTown(e.target.value)}
+              value={town}
+            ></input>
+          </div>
+          <div className='form__input'>
+            <label>State</label>
+            <input 
+              type="text"
+              name="state"
+              onChange={(e) => setState(e.target.value)}
+              value={state}
+            ></input>
+          </div>
+          <div className='form__input'>
+            <label>Zip code</label>
+            <input 
+              type="text"
+              name="zip"
+              onChange={(e) => setZip(e.target.value)}
+              value={zip}
+            ></input>
+          </div>
+          <div className='form__input'>
+            <label>Country</label>
+            <input 
+              type="text"
+              name="country"
+              onChange={(e) => setCountry(e.target.value)}
+              value={country}
+            ></input>
+          </div>
+        </div>
+      )}
+      <button className='form__button' type="submit">Sign Up</button>
     </form>
   );
 };
