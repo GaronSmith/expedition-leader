@@ -4,7 +4,6 @@ import { signUp } from '../../../services/auth';
 
 const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -18,17 +17,13 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await signUp(username, email, password);
+      const user = await signUp( email, password);
       if (!user.errors) {
         setAuthenticated(true);
       } else {
         setErrors(user.errors);
       }
     }
-  };
-
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
   };
 
   const updateEmail = (e) => {
