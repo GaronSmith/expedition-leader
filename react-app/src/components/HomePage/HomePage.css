@@ -1,10 +1,10 @@
 .homepage__container{
     background-image: url("HomePage.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size:cover;
     height: 100vh;
     width: 100%;
     background-position-x: center;
     background-position-y: center;
-    background-color: rgb(40,35,32);
+    background-color: rgb(21,29,37);
 }

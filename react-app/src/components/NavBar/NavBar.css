@@ -1,0 +1,8 @@
+.navbar__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(21,29,37);
+    height: 4rem;
+}
