@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../services/auth';
 
 const SignUpForm = ({authenticated, setAuthenticated}) => {
+  const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +15,8 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
       const user = await signUp(username, email, password);
       if (!user.errors) {
         setAuthenticated(true);
+      } else {
+        setErrors(user.errors);
       }
     }
   };
@@ -40,16 +43,13 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
 
   return (
     <form onSubmit={onSignUp}>
-      <div>
-        <label>User Name</label>
-        <input
-          type="text"
-          name="username"
-          onChange={updateUsername}
-          value={username}
-        ></input>
+      <h1 className='form__title'>Sign Up</h1>
+      <div className='form__errors'>
+        {errors.map((error) => (
+          <div>{error}</div>
+        ))}
       </div>
-      <div>
+      <div className='form__input'>
         <label>Email</label>
         <input
           type="text"
@@ -58,7 +58,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           value={email}
         ></input>
       </div>
-      <div>
+      <div className='form__input'>
         <label>Password</label>
         <input
           type="password"
@@ -67,7 +67,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           value={password}
         ></input>
       </div>
-      <div>
+      <div className='form__input'> 
         <label>Repeat Password</label>
         <input
           type="password"
@@ -77,7 +77,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           required={true}
         ></input>
       </div>
-      <button type="submit">Sign Up</button>
+      <button className='form__button' type="submit">Sign Up</button>
     </form>
   );
 };

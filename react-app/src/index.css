@@ -19,6 +19,9 @@ form{
     flex-direction: column;
     justify-content: center;
 }
+label{
+    padding-bottom: .2rem;
+}
 
 input{
     padding: .3rem;
