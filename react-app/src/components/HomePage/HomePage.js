@@ -4,11 +4,10 @@ import { useSelector } from 'react-redux'
 import './HomePage.css'
 
 const HomePage = () => {
-    user = useSelector(state => state.session.user)
+    const user = useSelector(state => state.session.user)
 
     return (
         <div className='homepage__container'>
-            
         </div>
     )
 }
