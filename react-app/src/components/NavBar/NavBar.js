@@ -27,7 +27,7 @@ const NavBar = ({ setAuthenticated }) => {
               </>
             }
           {user && <LogoutButton setAuthenticated={setAuthenticated}/>}
-        </div>
+        </div >
       </div>
     </nav>
   );
