@@ -23,6 +23,18 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     }
   };
 
+  const onClick = async(e) => {
+    e.preventDefault()
+    const user = await login('demo@aa.io', 'password');
+    if (!user.errors) {
+      setAuthenticated(true);
+      dispatch(setUser(user))
+      history.push('/')
+    } else {
+      setErrors(user.errors);
+    }
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -64,6 +76,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           onChange={updatePassword}
         />
         <button className='form__button' type="submit">Login</button>
+        <button className='form__button' onClick={onClick}>Demo User</button>
       </div>
     </form>
   );
