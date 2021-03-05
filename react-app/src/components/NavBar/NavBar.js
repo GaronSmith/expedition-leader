@@ -20,12 +20,12 @@ const NavBar = ({ setAuthenticated }) => {
            <h1 className="navbar__title"> Expedition Leader</h1>
         </div>
         <div className='navbar__container-right'>
-          {!user &&
+          {!user &&(
               <>
                 <LoginModal className='nav_button' setAuthenticated={setAuthenticated} />
                 <SignUpFormModal className='nav_button' setAuthenticated={setAuthenticated} />
               </>
-            }
+          )}
           {user && <LogoutButton className='nav_button' setAuthenticated={setAuthenticated}/>}
         </div >
       </div>

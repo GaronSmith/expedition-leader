@@ -8,6 +8,12 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [checked, setChecked] = useState(false)
+  const [street, setStreet] = useState("");
+  const [town, setTown] = useState("");
+  const [zip, setZip] = useState("");
+  const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -77,6 +83,64 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           required={true}
         ></input>
       </div>
+      <div className='form__input'> 
+        <label>Wish to sign up for delivery?</label>
+        <input
+          type="checkbox"
+          name="checkbox"
+          onChange={(e) => setChecked(!checked)}
+          checked={checked}
+        ></input>
+      </div>
+      {checked && (
+        <div className='form__address__container'>
+          <div className='form__input'>
+            <label>Street Address</label>
+            <input id="address"
+              type="text"
+              name="address"
+              onChange={(e) => setStreet(e.target.value)}
+              value={street}
+            ></input>
+          </div>
+          <div className='form__input'>
+            <label>Town</label>
+            <input 
+              type="text"
+              name="town"
+              onChange={(e) => setTown(e.target.value)}
+              value={town}
+            ></input>
+          </div>
+          <div className='form__input'>
+            <label>State</label>
+            <input 
+              type="text"
+              name="state"
+              onChange={(e) => setState(e.target.value)}
+              value={state}
+            ></input>
+          </div>
+          <div className='form__input'>
+            <label>Zip code</label>
+            <input 
+              type="text"
+              name="zip"
+              onChange={(e) => setZip(e.target.value)}
+              value={zip}
+            ></input>
+          </div>
+          <div className='form__input'>
+            <label>Country</label>
+            <input 
+              type="text"
+              name="country"
+              onChange={(e) => setCountry(e.target.value)}
+              value={country}
+            ></input>
+          </div>
+        </div>
+      )}
       <button className='form__button' type="submit">Sign Up</button>
     </form>
   );
