@@ -13,20 +13,20 @@ const NavBar = ({ setAuthenticated }) => {
       <div className='navbar__container'>
         <div className='navbar__container-left'>
           <NavLink className='navbar__link' to="/" exact={true} activeClassName="active">
-            Home
+            <h1>Home</h1>
               </NavLink>
         </div>
         <div className='navbar__container-middle'>
-           Expedition Leader
+           <h1 className="navbar__title"> Expedition Leader</h1>
         </div>
         <div className='navbar__container-right'>
           {!user &&
               <>
-                <LoginModal setAuthenticated={setAuthenticated} />
-                <SignUpFormModal setAuthenticated={setAuthenticated} />
+                <LoginModal className='nav_button' setAuthenticated={setAuthenticated} />
+                <SignUpFormModal className='nav_button' setAuthenticated={setAuthenticated} />
               </>
             }
-          {user && <LogoutButton setAuthenticated={setAuthenticated}/>}
+          {user && <LogoutButton className='nav_button' setAuthenticated={setAuthenticated}/>}
         </div >
       </div>
     </nav>
