@@ -1,1 +1,10 @@
 /* TODO Add site wide styles */
+button{
+    background-color:  rgb(78,169,237);
+    border-radius: .5rem;
+    margin-left: 1rem;
+    width: 30%;
+    height: 50%;
+    border: none;
+    color: rgb(224,224,224);
+}

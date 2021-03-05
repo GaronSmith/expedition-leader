@@ -1,0 +1,35 @@
+.navbar__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(21,29,37);
+    height: 4rem;
+    
+}
+
+.navbar__container-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 33%;
+    height: 100%;
+}
+
+.navbar__container-center{
+    width: 33%;
+}
+
+.navbar__container-left{
+    width: 33%;
+}
+
+.navbar__title{
+    color: rgb(224,224,224);
+}
+
+.navbar__link{
+    text-decoration: none;
+    color: rgb(224,224,224);
+}
