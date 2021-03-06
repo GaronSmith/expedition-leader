@@ -46,4 +46,6 @@ button:hover{
 
 ul{
     list-style-type: none;
+    margin: 0;
+    width: 100%;
 }

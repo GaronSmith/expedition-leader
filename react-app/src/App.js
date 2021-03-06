@@ -40,9 +40,6 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
           <User />
         </ProtectedRoute>
-        {/* <Route path="/dashboard" exact={true} authenticated={authenticated}>
-          <DashBoard />
-        </Route> */}
         <Route path="/" exact={true} authenticated={authenticated}>
           <HomePage />
         </Route>
