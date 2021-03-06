@@ -53,6 +53,6 @@ export const signUp = async (firstName, lastName, email, password, street,
       "content-type": "multipart/form-data",
     },
   });
-  
-  return await response.json();
+
+  return await response.data;
 }

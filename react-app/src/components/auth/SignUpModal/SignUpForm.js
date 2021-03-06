@@ -87,7 +87,6 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           type="file"
           name="imageFile"
           onChange={(e) => setImageFile(e.target.files[0])}
-          value={imageFile}
         ></input>
       </div>
       <div className='form__input'>

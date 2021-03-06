@@ -17,15 +17,15 @@ try:
 except Exception as e:
     print(f"S3 ERROR: {e}")
 
-S3_BUCKET = "expedition-leader"
+S3_BUCKET = os.environ.get("S3_BUCKET")
 
-try:
-    S3_BUCKET_SERVER = s3.get_bucket_location(Bucket=S3_BUCKET)[
-        'LocationConstraint']
-except Exception as e:
-    print(f"S3 ERROR: {e}")
+# try:
+#     S3_BUCKET_SERVER = s3.get_bucket_location(Bucket=S3_BUCKET)[
+#         'LocationConstraint']
+# except Exception as e:
+#     print(f"S3 ERROR: {e}")
 
-S3_LOCATION = f'http://{S3_BUCKET}.s3.{S3_BUCKET_SERVER}.amazonaws.com/'
+S3_LOCATION = f'http://{S3_BUCKET}.s3.amazonaws.com/'
 
 
 # FUNCTION TO LIMIT TYPES OF FILES THAT S3 ACCEPTS
