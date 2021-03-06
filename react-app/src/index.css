@@ -43,3 +43,7 @@ input{
 button:hover{
     color: rgb(250,250,250) ;
 }
+
+ul{
+    list-style-type: none;
+}

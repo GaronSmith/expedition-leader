@@ -8,6 +8,7 @@ import { authenticate } from "./services/auth";
 import { useDispatch } from "react-redux";
 import { setUser } from "./store/session";
 import HomePage from "./components/HomePage";
+import DashBoard from "./components/DashBoard";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -33,12 +34,15 @@ function App() {
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} />
       <Switch>
-        <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
-          <UsersList/>
+        <ProtectedRoute path="/dashboard" exact={true} authenticated={authenticated}>
+          <DashBoard />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
           <User />
         </ProtectedRoute>
+        {/* <Route path="/dashboard" exact={true} authenticated={authenticated}>
+          <DashBoard />
+        </Route> */}
         <Route path="/" exact={true} authenticated={authenticated}>
           <HomePage />
         </Route>
