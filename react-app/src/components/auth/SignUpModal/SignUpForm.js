@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../../services/auth';
+import { setUser } from "../../../store/session";
 
 const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [errors, setErrors] = useState([]);
@@ -17,6 +19,9 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [country, setCountry] = useState("");
   const [imageFile, setImageFile] = useState(null)
 
+  const history = useHistory();
+  const dispatch = useDispatch(); 
+
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
@@ -24,6 +29,8 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         town, zip, state, country, imageFile);
       if (!user.errors) {
         setAuthenticated(true);
+        dispatch(setUser(user))
+        history.push('/')
       } else {
         setErrors(user.errors);
       }
