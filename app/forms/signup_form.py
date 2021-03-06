@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
@@ -21,5 +21,5 @@ class SignUpForm(FlaskForm):
     street_address = StringField('street_address')
     town = StringField('town')
     state = StringField('state')
-    zipcode = StringField('zipcode')
+    zipcode = IntegerField('zipcode')
     country = StringField('country')

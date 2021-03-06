@@ -12,7 +12,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [checked, setChecked] = useState(false)
   const [street, setStreet] = useState("");
   const [town, setTown] = useState("");
-  const [zip, setZip] = useState("");
+  const [zip, setZip] = useState(parseInt(0));
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
   const [imageFile, setImageFile] = useState(null)

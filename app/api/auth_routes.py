@@ -75,12 +75,13 @@ def sign_up():
             last_name=form.data['last_name'],
             email=form.data['email'],
             password=form.data['password'],
-            street=form.data['street_address'],
+            street_address=form.data['street_address'],
             town=form.data['town'],
-            zip=form.data['zipcode'],
+            zipcode=form.data['zipcode'],
             state=form.data['state'],
             country=form.data['country'],
-            profile_image_url= url
+            profile_image_url= url,
+            qr_image_url='test'
         )
         db.session.add(user)
         db.session.commit()

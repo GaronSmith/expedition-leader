@@ -2,6 +2,7 @@
 import os
 from datetime import datetime
 import boto3
+import botocore
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'tiff'}
 
@@ -14,6 +15,8 @@ try:
         aws_secret_access_key=os.environ.get(
             "S3_SECRET_ACCESS_KEY"),
     )
+    aws_access_key_id = os.environ.get("S3_ACCESS_KEY")
+    print("*****************", aws_access_key_id)
 except Exception as e:
     print(f"S3 ERROR: {e}")
 
@@ -25,7 +28,7 @@ S3_BUCKET = os.environ.get("S3_BUCKET")
 # except Exception as e:
 #     print(f"S3 ERROR: {e}")
 
-S3_LOCATION = f'http://{S3_BUCKET}.s3.amazonaws.com/'
+S3_LOCATION = f"http://{S3_BUCKET}.s3.amazonaws.com/"
 
 
 # FUNCTION TO LIMIT TYPES OF FILES THAT S3 ACCEPTS
