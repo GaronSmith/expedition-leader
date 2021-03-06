@@ -37,3 +37,7 @@
 button:hover{
     color: rgb(250,250,250) ;
 }
+
+button.form__button{
+    align-self: center;
+}
