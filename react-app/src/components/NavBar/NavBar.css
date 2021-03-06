@@ -33,3 +33,7 @@
     text-decoration: none;
     color: rgb(224,224,224);
 }
+
+button:hover{
+    color: rgb(250,250,250) ;
+}

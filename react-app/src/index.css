@@ -39,3 +39,7 @@ input{
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
+button:hover{
+    color: rgb(250,250,250) ;
+}
