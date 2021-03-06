@@ -18,6 +18,7 @@ class User(db.Model, UserMixin):
   zipcode = db.Column(db.Integer)
   country = db.Column(db.String(50))
   qr_image_url = db.Column(db.String, nullable=False)
+  profile_image_url = db.Column(db.String(300))
   created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
   gear = db.relationship('GearLog', back_populates="owner", cascade="all,delete-orphan")
@@ -44,7 +45,7 @@ class User(db.Model, UserMixin):
         "first_name": self.first_name,
         "last_name": self.last_name,
         "email": self.email,
-        "image_url": self.image_url,
+        "profile_image_url": self.image_url,
         "street_address": self.street_address,
         "town": self.town,
         "state": self.state,
