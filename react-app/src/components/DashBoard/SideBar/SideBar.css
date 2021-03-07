@@ -14,10 +14,12 @@
   align-items: center;
 }
 
-.sidebar_link{
+button.sidebar_link{
     color: rgb(205,205,205);
     margin-left: -1rem;
     text-decoration: none;
+    background-color: rgb(52,59,64);
+    font-size: 1.1rem;
 }
 
 .sidebar_link:hover{

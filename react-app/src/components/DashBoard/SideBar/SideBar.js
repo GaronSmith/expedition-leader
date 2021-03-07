@@ -10,9 +10,9 @@ const SideBar = () => {
         <div className="sidebar__container">
             <ul>
                 <li>
-                    <NavLink className="sidebar_link" to='/dash'>
+                    <button className="sidebar_link" to='/dash'>
                         <p><span><FontAwesomeIcon icon={faBoxOpen} /></span> Gear Box</p>
-                    </NavLink>
+                    </button>
                 </li>
             </ul>
         </div>
