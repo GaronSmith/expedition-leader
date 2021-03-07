@@ -11,7 +11,6 @@ const SideBar = () => {
             <ul>
                 <li>
                     <NavLink className="sidebar_link" to='/dash'>
-                        {/* <FontAwesomeIcon icon={faBoxOpen} /> */}
                         <p><span><FontAwesomeIcon icon={faBoxOpen} /></span> Gear Box</p>
                     </NavLink>
                 </li>
