@@ -1,0 +1,12 @@
+.dashboard__container{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    width: 100%;
+    background-color: yellow;
+    height: 100vh;
+}
+
+.gearbox{
+    width: 80%;
+}
