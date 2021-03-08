@@ -3,7 +3,7 @@
 
     border-radius: 5px;
     margin-top: .2rem;
-    width: 70%
+    width: 70%;
 }
 .item__contentInner {
   padding: 10px;
@@ -38,4 +38,25 @@
 }
 .item__trigger:hover{
   cursor: pointer;
+}
+
+.item__image{
+    height: 10rem;
+}
+
+.item__label{
+    font-weight: bold;
+}
+
+.item__container{
+    display: flex;
+    flex-direction: row;
+}
+
+.item__right{
+    margin-left: 1rem;
+}
+
+.item__spec{
+    margin-top: .5rem;
 }
