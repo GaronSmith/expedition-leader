@@ -50,3 +50,7 @@ ul{
     width: 100%;
     padding: 0px;
 }
+
+p{
+    text-align: left;
+}

@@ -9,7 +9,7 @@
   padding-top: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:flex-start;
 }
 
 button.sidebar_link{
@@ -19,6 +19,7 @@ button.sidebar_link{
     background-color: rgb(52,59,64);
     font-size: 1.1rem;
     border: rgb(52,59,64);
+    align-self: flex-start;
 }
 
 .sidebar_link:hover{
