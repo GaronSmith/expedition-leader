@@ -3,7 +3,7 @@
     flex-direction: row;
     position: fixed;
     width: 100%;
-    background-color: yellow;
+    background-color: rgba(52,59,64,.2);
     height: 100vh;
 }
 
