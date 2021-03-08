@@ -30,4 +30,5 @@ class GearLog(db.Model):
             "purchase_date": self.purchse_date,
             "cost": self.cost,
             "quantity": self.quantity,
+            "category": self.category
         }

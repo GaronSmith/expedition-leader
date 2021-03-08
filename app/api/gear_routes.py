@@ -8,6 +8,6 @@ gear_routes = Blueprint('gear', __name__)
 def get_gear():
     categories = GearCategory.query.all()
     print('hit')
-    return {cat.id: cat.name for cat in categories}
+    return {cat.id: {"id": cat.id, "name":cat.name} for cat in categories}
 
 
