@@ -20,6 +20,7 @@ button.sidebar_link{
     text-decoration: none;
     background-color: rgb(52,59,64);
     font-size: 1.1rem;
+    border: rgb(52,59,64);
 }
 
 .sidebar_link:hover{
