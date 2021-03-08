@@ -1,11 +1,8 @@
 .gearbox__container{
-    width: 500px;
+    width: 80%px;
     background-color: yellow;
     color: black;
     display: flex;
     justify-content: center;
     align-content: center;
-}
-h2{
-    align-self: center;
 }

@@ -1,11 +1,12 @@
 import React from 'react'
 
 import './GearBox.css'
+import GearGroup from './GearGroup'
 
 const GearBox = () => {
     return (
         <div className='gearbox__container'>
-            <h2>test</h2>
+            <GearGroup />
         </div>
     )
 }
