@@ -27,8 +27,7 @@ class GearLog(db.Model):
             "manufacturer": self.manufacturer,
             "image_url": self.image_url,
             "status": self.status,
-            "purchase_date": self.purchse_date,
+            "purchase_date": self.purchase_date,
             "cost": self.cost,
             "quantity": self.quantity,
-            "category": self.category
         }
