@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 
 import './GearGroup.css'
+import GearItem from './GearItem'
 
 const GearGroup = ({group, items}) => {
 
@@ -11,6 +12,7 @@ const GearGroup = ({group, items}) => {
             <Collapsible trigger={`${group.name} ()`}>
               <div className='inner__content'>
                   <p>{items[0].name}</p>
+                  <GearItem />
               </div>
               <div className='inner__content'>
                 <button className='add-gear'><FontAwesomeIcon icon={faPlusSquare}/></button>

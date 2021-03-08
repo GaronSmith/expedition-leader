@@ -1,0 +1,24 @@
+.test {
+  display: block;
+  font-weight: 400;
+  text-decoration: none;
+  color: grey;
+  position: relative;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  background: rgba(21,30,37,.7);
+  color: white;
+  content: icon;
+  width: 100%;
+}
+.CustomTriggerCSS {
+  background-color: lightcoral;
+  transition: background-color 200ms ease;
+  
+  
+}
+
+.test::before {
+    content:'⬆' ;
+}
