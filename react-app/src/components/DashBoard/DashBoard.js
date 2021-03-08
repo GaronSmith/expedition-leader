@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import "./DashBoard.css"
@@ -7,15 +7,18 @@ import SideBar from './SideBar'
 
 const DashBoard = () => {
     const user = useSelector(state => state.session.user)
+    const [view, setView] = useState(
+   <h1>test</h1>)
 
     return (
         <div className="dashboard__container">
             <div>
-                <SideBar />
+                <SideBar setView={setView}/>
             </div>
-            <div className='gearbox'>
+            {/* <div className='gearbox'>
                 <GearBox />
-            </div>
+            </div> */}
+            {view}
         </div>
 
     )

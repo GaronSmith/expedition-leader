@@ -13,7 +13,7 @@ const GearGroup = ({group, items, amt}) => {
               <div className='inner__content'>
                   {
                   items.map(item => {
-                    return <GearItem key={item.id}item={item}/>
+                    return <GearItem key={item.id} item={item}/>
                   })}
               </div>
               <div className='inner__content'>
