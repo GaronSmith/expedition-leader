@@ -19,7 +19,7 @@ const GearBox = () => {
         <div className='gearbox__container'>
             {categories && items &&
                 Object.values(categories).map(group => {
-                    return <GearGroup group={group} items={items[group.id]}/>
+                    return <GearGroup key={group.id} amt={items[group.id].length} group={group} items={items[group.id]}/>
                 })
             }
 

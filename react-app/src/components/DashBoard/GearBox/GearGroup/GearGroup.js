@@ -6,13 +6,15 @@ import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 import './GearGroup.css'
 import GearItem from './GearItem'
 
-const GearGroup = ({group, items}) => {
+const GearGroup = ({group, items, amt}) => {
 
     return (
-            <Collapsible trigger={`${group.name} ()`}>
+            <Collapsible trigger={`${group.name} (${amt})`}>
               <div className='inner__content'>
-                  <p>{items[0].name}</p>
-                  <GearItem />
+                  {
+                  items.map(item => {
+                    return <GearItem key={item.id}item={item}/>
+                  })}
               </div>
               <div className='inner__content'>
                 <button className='add-gear'><FontAwesomeIcon icon={faPlusSquare}/></button>
