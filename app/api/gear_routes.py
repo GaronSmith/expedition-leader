@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import GearCategory, GearLog
 import json
+from collections import defaultdict
 
 gear_routes = Blueprint('gear', __name__)
 
@@ -16,5 +17,9 @@ def get_items():
     data = json.loads(request.data)
     id = data['id']
     items = GearLog.query.filter(GearLog.owner_id == id).all()
-    return {item.id: item.to_dict() for item in items}
+    res = defaultdict(lambda :[])
+    for item in items:
+        res[item.category_id].append(item.to_dict())
+    
+    return res
 
