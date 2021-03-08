@@ -7,7 +7,7 @@ const GearItem = ({item}) => {
     
     return (
         <div className='gear-item__container'>
-            <Collapsible classParentString='test' trigger='  test'>
+            <Collapsible classParentString='item' trigger='  test'>
                 <h1> hello</h1>
             </Collapsible>
         </div>

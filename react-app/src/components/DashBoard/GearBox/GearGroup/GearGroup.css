@@ -22,10 +22,20 @@
   padding: 10px;
   background: rgba(21,30,37,.36);
   color: white;
+  
+}
+
+.Collapsible__trigger::after{
+  content: '⬆';
+  right: 10px;
+  position:absolute
 }
 
 .Collapsible__trigger.is-open::after{
     transform: rotateZ(180deg);
 
+}
+.Collapsible__trigger:hover{
+  cursor: pointer;
 }
 
