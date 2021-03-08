@@ -10,7 +10,7 @@ const GearGroup = ({group, items}) => {
     return (
             <Collapsible trigger={`${group.name} ()`}>
               <div className='inner__content'>
-                  <p>test</p>
+                  <p>{items[0].name}</p>
               </div>
               <div className='inner__content'>
                 <button className='add-gear'><FontAwesomeIcon icon={faPlusSquare}/></button>
