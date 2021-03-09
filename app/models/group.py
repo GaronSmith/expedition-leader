@@ -5,6 +5,7 @@ class Group(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable = False)
+    image_url = db.Column(db.String(255))
 
     trips = db.relationship("Trip", back_populates="group")
     members = db.relationship("User", secondary='group_members', back_populates='groups')
@@ -13,5 +14,6 @@ class Group(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "trips": self.trips
+            "trips": self.trips,
+            "image_url":self.image_url
         }
