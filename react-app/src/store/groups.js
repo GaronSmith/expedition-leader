@@ -3,7 +3,7 @@ const SET_PENDING_GROUPS = 'groups/setPendingGroups'
 
 const setGroups = (groups) => {
     return {
-        action: SET_GROUPS,
+        type: SET_GROUPS,
         payload:groups
     }
 }
@@ -15,8 +15,8 @@ const setPendingGroups = (groups) => {
     }
 }
 
-const getCurrentGroups = () => async (dispatch) => {
-    const response = await fetch('/api/groups')
+export const getCurrentGroups = () => async (dispatch) => {
+    const response = await fetch('/api/group/')
 
     if(response.ok){
         const groups = await response.json()
@@ -24,7 +24,7 @@ const getCurrentGroups = () => async (dispatch) => {
     }   
 }
 
-const getPendingGroups = () => async (dispatch) => {
+export const getPendingGroups = () => async (dispatch) => {
     const response = await fetch("/api/groups/pending")
 
     if (response.ok) {
@@ -52,3 +52,5 @@ const groupReducer = (state = initialState, action ) => {
             return state
     }
 }
+
+export default groupReducer

@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 import json
 from collections import defaultdict
 from app.models import GearCategory, GearLog, db
@@ -10,7 +10,9 @@ from ..helpers import s3, upload_file_to_s3, allowed_file
 gear_routes = Blueprint('gear', __name__)
 
 @gear_routes.route("/categories", methods=["GET"])
+@login_required
 def get_gear():
+    print('*******',current_user)
     categories = GearCategory.query.all()
     return {cat.id: {"id": cat.id, "name":cat.name} for cat in categories}
 

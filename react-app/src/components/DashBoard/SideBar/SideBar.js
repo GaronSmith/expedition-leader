@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBoxOpen, faUserFriends, faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 import GearBox from "../GearBox"
 import "./SideBar.css"
+import GroupsList from '../GroupsList'
 
 const SideBar = ({setView}) => {
     const gearBoxOnClick =(e) =>{
@@ -29,7 +30,7 @@ const SideBar = ({setView}) => {
 
         setView(
             <div className='main_container'>
-
+                <GroupsList />
             </div>
         )
     }
