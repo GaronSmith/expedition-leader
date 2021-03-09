@@ -5,6 +5,7 @@ import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 
 import './GearGroup.css'
 import GearItem from './GearItem'
+import GearFormModal from '../../GearFormModal'
 
 const GearGroup = ({group, items, amt}) => {
 
@@ -17,7 +18,7 @@ const GearGroup = ({group, items, amt}) => {
                   })}
               </div>
               <div className='inner__content'>
-                <button className='add-gear'><FontAwesomeIcon icon={faPlusSquare}/></button>
+                <GearFormModal />
               </div>
             </Collapsible>
         
