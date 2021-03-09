@@ -23,3 +23,8 @@ def get_items():
     
     return res
 
+
+@gear_routes.route("/items/new", methods=["POST"])
+def new_item():
+    pass
+
