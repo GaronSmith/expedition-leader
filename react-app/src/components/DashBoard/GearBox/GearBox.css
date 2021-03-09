@@ -3,6 +3,7 @@
     background-color: rgb(215,216,217);
     color: black;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
 }

@@ -20,7 +20,7 @@ const GearGroup = ({group,  amt}) => {
     return (
             <Collapsible trigger={`${group.name} (${amt})`}>
               <div className='inner__content'>
-                  {
+                  {items && 
                   items.map(item => {
                     return <GearItem key={item.id} item={item}/>
                   })}

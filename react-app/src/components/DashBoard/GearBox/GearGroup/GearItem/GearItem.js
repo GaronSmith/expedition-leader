@@ -12,7 +12,7 @@ const GearItem = ({item}) => {
                     <div className='item__left'>
                         <img className='item__image' src={item.image_url} alt='img' />
                     </div>
-                    <div className='item__right'>
+                    <div className='item__middle'>
                         <ul className='item__list'>
                             <li className='item__spec'>
                                 <span className='item__label'> Manufacturer:</span> {item.manufacturer ? item.manufacturer : "information not provided"}
@@ -30,6 +30,9 @@ const GearItem = ({item}) => {
                                 <span className='item__label'> Status:</span> {item.status ? item.status : "information not provided"}
                             </li>
                         </ul>
+                    </div>
+                    <div className='item__right'>
+                        <button className="delete">test </button>
                     </div>
                 </div>
             </Collapsible>

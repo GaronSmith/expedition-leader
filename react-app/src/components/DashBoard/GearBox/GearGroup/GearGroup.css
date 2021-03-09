@@ -2,7 +2,8 @@
     /* background-color: green ; */
     border-radius: 5px;
     margin-top: 1rem;
-    width: 70%
+    width: 70%;
+    align-self: center;
 }
 .Collapsible__contentInner {
   padding: 10px;
