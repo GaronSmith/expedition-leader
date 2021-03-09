@@ -9,7 +9,7 @@ function GearFormModal({ group }) {
 
     return (
         <>
-            <button className='navbar__button' onClick={() => setShowModal(true)}>
+            <button className='modal__button' onClick={() => setShowModal(true)}>
                 Add Item 
             </button>
             {showModal && (
