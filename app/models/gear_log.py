@@ -8,6 +8,7 @@ class GearLog(db.Model):
     id = db.Column(db.Integer, primary_key= True)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('gear_categories.id'), nullable=False)
+    name = db.Column(db.String, nullable=False)
     manufacturer = db.Column(db.String(200))
     image_url = db.Column(db.Text)
     status = db.Column(db.String(50))
@@ -23,11 +24,12 @@ class GearLog(db.Model):
         return {
             "id": self.id,
             "owner_id": self.owner_id,
+            "name": self.name,
             "category_id": self.category_id,
             "manufacturer": self.manufacturer,
             "image_url": self.image_url,
             "status": self.status,
-            "purchase_date": self.purchse_date,
+            "purchase_date": self.purchase_date,
             "cost": self.cost,
             "quantity": self.quantity,
         }

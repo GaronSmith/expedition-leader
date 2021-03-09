@@ -1,0 +1,8 @@
+.gearbox__container{
+    width: 80%px;
+    background-color: rgb(215,216,217);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

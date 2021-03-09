@@ -43,3 +43,14 @@ input{
 button:hover{
     color: rgb(250,250,250) ;
 }
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+    padding: 0px;
+}
+
+p{
+    text-align: left;
+}

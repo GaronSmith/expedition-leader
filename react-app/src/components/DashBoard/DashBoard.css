@@ -1,0 +1,12 @@
+.dashboard__container{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(52,59,64,.2);
+    height: 100vh;
+}
+
+.main_container{
+    width: 80%;
+}
