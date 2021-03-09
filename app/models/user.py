@@ -51,4 +51,5 @@ class User(db.Model, UserMixin):
         "zipcode": self.zipcode,
         "country": self.country,
         "qr_image_url": self.qr_image_url,
+        "groups":[group.to_dict() for group in self.groups]
     }
