@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Modal } from '../../../context/Modal'
 
 
-function GearFormModal({ setAuthenticated, authenticated }) {
+function GearFormModal({ group }) {
     const [showModal, setShowModal] = useState(false)
 
     return (
@@ -14,7 +14,7 @@ function GearFormModal({ setAuthenticated, authenticated }) {
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <GearForm />
+                    <GearForm group={group}/>
                 </Modal>
             )}
         </>

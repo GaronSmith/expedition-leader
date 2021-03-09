@@ -18,7 +18,7 @@ const GearGroup = ({group, items, amt}) => {
                   })}
               </div>
               <div className='inner__content'>
-                <GearFormModal />
+                <GearFormModal group={group}/>
               </div>
             </Collapsible>
         
