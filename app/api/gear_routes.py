@@ -52,3 +52,12 @@ def new_item():
         db.session.add(item)
         db.session.commit()
         return item.to_dict()
+
+
+@gear_routes.route("/items/<int:id>", methods=["DELETE"])
+def delete_item(id):
+    GearLog.query.filter(GearLog.id == id).delete()
+
+    db.session.commit()
+    return {id:id}
+

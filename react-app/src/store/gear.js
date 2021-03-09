@@ -3,6 +3,7 @@ import axios from 'axios'
 const SET_GEAR_CATEGORIES = "gear/setGearCategories"
 const SET_GEAR_ITEMS ="gear/setGearItems"
 const APPEND_GEAR_ITEM = "gear/appendItem"
+const DELETE_GEAR_ITEM = "gear/deleteItem"
 
 const setGearCategories = (categories) =>{
     return {
@@ -25,6 +26,14 @@ const appendItem = (item) =>{
     }
 }
 
+const deleteItem = (group, id) => {
+    return {
+        type: DELETE_GEAR_ITEM,
+        group: group,
+        payload: id
+    }
+}
+
 export const getCategories = () => async (dispatch) => {
     const response = await fetch("/api/gear/categories")
 
@@ -44,6 +53,14 @@ export const getGearItems = (id) => async (dispatch) => {
         const gear = await response.json()
         dispatch(setGearItems(gear))
     }
+}
+
+export const deleteGearItem = (group, id) => async (dispatch) => {
+    const response = await fetch(`/api/gear/items/${id}`, {
+        method: "DELETE",
+    })
+
+    dispatch(deleteItem(group,id))
 }
 
 export const createGearItem = (obj) => async (dispatch) =>{
@@ -84,13 +101,16 @@ const gearReducer = (state = initialState, action) => {
             return newState
         case APPEND_GEAR_ITEM:
             newState = Object.assign({}, state);
-            console.log(newState.items[action.payload.category_id])
             if (newState.items[action.payload.category_id]){
                 const arr = [...newState.items[action.payload.category_id], action.payload]
                 newState.items[action.payload.category_id] = arr
             } else{
                 newState.items[action.payload.category_id] = [action.payload]
             }
+            return newState
+        case DELETE_GEAR_ITEM:
+            newState = Object.assign({}, state);
+            newState.items[action.group] = newState.items[action.group].filter(el => el.id !== action.payload)
             return newState
         default:
             return state

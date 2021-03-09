@@ -1,10 +1,17 @@
 import React from 'react'
 import Collapsible from 'react-collapsible'
+import { useDispatch } from 'react-redux'
+import { deleteGearItem } from '../../../../../store/gear'
 
 import './GearItem.css'
 
 const GearItem = ({item}) => {
+    const dispatch = useDispatch()
     
+    const onDelete = (e) => {
+        e.preventDefault()
+        dispatch(deleteGearItem(item.category_id, item.id))
+    }
     return (
         <div className='gear-item__container'>
             <Collapsible classParentString='item' trigger={`${item.name}`}>
@@ -32,7 +39,7 @@ const GearItem = ({item}) => {
                         </ul>
                     </div>
                     <div className='item__right'>
-                        <button className="delete">test </button>
+                        <button className="delete" onClick={onDelete}> Delete </button>
                     </div>
                 </div>
             </Collapsible>
