@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { createGearItem } from '../../../store/gear'
 
 import './GearForm.css'
 
@@ -12,10 +14,23 @@ const GearForm = ({group}) => {
     const [quantity, setQuantity] = useState(1)
     const [errors, setErrors] = useState([])
 
-    const category = group.id
+    const ownerId = useSelector(state => state.session.user.id)
+    const dispatch = useDispatch()
+    const categoryId = group.id
+
 
     const onSubmit = (e) => {
         e.preventDefault()
+        dispatch(createGearItem({
+            name,
+            manufacturer,
+            ownerId,
+            categoryId,
+            imageFile,
+            purchaseDate,
+            cost,
+            quantity,
+        }))
     }
 
     return (
@@ -48,6 +63,20 @@ const GearForm = ({group}) => {
                 />
             </div>
             <div className='form__input'>
+                <label> Status of item</label>
+                <select 
+                name='status'
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                >
+                    <option value='Brand New'> Brand New</option>
+                    <option value='Lightly Used'> Lightly Used</option>
+                    <option value='Heavily Used'> Heavily Used</option>
+                    <option value='No Longer Able To Use'> No Longer Able To Use</option>
+
+                </select>
+            </div>
+            <div className='form__input'>
                 <label>Photo of item</label>
                 <input
                     type="file"
@@ -61,8 +90,8 @@ const GearForm = ({group}) => {
                     name="cost"
                     type="text"
                     placeholder="cost"
-                    value={cost}
-                    onChange={(e) => setCost(parseInt(e.target.value * 100))}
+                    value={cost/100}
+                    onChange={(e) => setCost(e.target.value * 100)}
                 />
             </div>
             <div className='form__input'>
@@ -72,7 +101,7 @@ const GearForm = ({group}) => {
                     type="number"
                     placeholder="quantity"
                     value={quantity}
-                    onChange={(e) => setQuantity(parseInt(e.target.value * 100))}
+                    onChange={(e) => setQuantity(parseInt(e.target.value))}
                 />
             </div>
             <div className='form__input'>
@@ -86,7 +115,7 @@ const GearForm = ({group}) => {
                 />
             </div>
             <div className='form__input'>
-                <button className='form__button' type="submit">Login</button>
+                <button className='form__button' type="submit">Add Item</button>
             </div>
         </form>
 

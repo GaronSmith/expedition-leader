@@ -10,6 +10,6 @@ class GearForm(FlaskForm):
     manufacturer = StringField("manufacturer")
     image_url = StringField("image_url")
     status = StringField("status")
-    date = DateField("date")
+    purchase_date = DateField("purchase_date")
     cost = IntegerField("cost")
     quantity = IntegerField("quantity")
