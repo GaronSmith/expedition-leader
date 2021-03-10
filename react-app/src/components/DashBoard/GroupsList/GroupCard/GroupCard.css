@@ -1,0 +1,23 @@
+.group_card__container{
+    height: 15rem;
+    width: 15rem;
+    background-color: rgb(250,250,250);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: black;
+    margin: 3rem;
+}
+
+.group_card__top{
+    display: flex;
+    justify-content: center;
+}
+.group_card__bottom{
+    display: flex;
+    justify-content: center;
+}
+
+#group-image{
+    height: 5rem;
+}
