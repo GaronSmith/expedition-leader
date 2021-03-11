@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
 import { useDispatch } from "react-redux";
@@ -37,8 +36,8 @@ function App() {
         <ProtectedRoute path="/dashboard" exact={true} authenticated={authenticated}>
           <DashBoard />
         </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
-          <User />
+        <ProtectedRoute path="/dashboard/group/:groupId" exact={true} authenticated={authenticated}>
+          
         </ProtectedRoute>
         <Route path="/" exact={true} authenticated={authenticated}>
           <HomePage />
