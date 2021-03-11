@@ -15,8 +15,8 @@ const GroupsList = () => {
     const [groupRows, setGroupRows] = useState([])
     useEffect(() => {
         if(accepted){
-            const rows = [...Array(Math.ceil(accepted.length / 3))];
-            const groupArr = rows.map((row, idx) => accepted.slice(idx * 3, idx * 3 + 3));
+            const rows = [...Array(Math.ceil(accepted.length / 4))];
+            const groupArr = rows.map((row, idx) => accepted.slice(idx * 4, idx * 4 + 4));
             setGroupRows(groupArr)
             console.log(groupArr)
         }
