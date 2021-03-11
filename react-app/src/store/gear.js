@@ -44,6 +44,7 @@ export const getCategories = () => async (dispatch) => {
 }
 
 export const getGearItems = (id) => async (dispatch) => {
+    
     const response = await fetch ("/api/gear/items", {
         method:"POST",
         body: JSON.stringify({id})

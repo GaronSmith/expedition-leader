@@ -54,3 +54,7 @@ ul{
 p{
     text-align: left;
 }
+
+*{
+    margin: 0;
+}

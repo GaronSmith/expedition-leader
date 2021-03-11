@@ -1,8 +1,9 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBoxOpen } from '@fortawesome/free-solid-svg-icons'
+import { faBoxOpen, faUserFriends, faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 import GearBox from "../GearBox"
 import "./SideBar.css"
+import GroupsList from '../GroupsList'
 
 const SideBar = ({setView}) => {
     const gearBoxOnClick =(e) =>{
@@ -24,6 +25,16 @@ const SideBar = ({setView}) => {
         )
     }
 
+    const groupOnClick = (e) => {
+        e.preventDefault()
+
+        setView(
+            <div className='main_container'>
+                <GroupsList />
+            </div>
+        )
+    }
+
     return (
         <div className="sidebar__container">
             <ul>
@@ -33,8 +44,13 @@ const SideBar = ({setView}) => {
                     </button>
                 </li>
                 <li>
+                    <button className="sidebar_link" to='/dash' onClick={groupOnClick}>
+                        <p><span><FontAwesomeIcon icon={faUserFriends} /></span> Groups</p>
+                    </button>
+                </li>
+                <li>
                     <button className="sidebar_link" to='/dash' onClick={tripOnClick}>
-                        <p><span><FontAwesomeIcon icon={faBoxOpen} /></span> Trip</p>
+                        <p><span><FontAwesomeIcon icon={faCalendarAlt} /></span> Trip</p>
                     </button>
                 </li>
             </ul>
