@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "./store/session";
 import HomePage from "./components/HomePage";
 import DashBoard from "./components/DashBoard";
+import GroupBoard from "./components/GroupBoard";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -37,7 +38,7 @@ function App() {
           <DashBoard />
         </ProtectedRoute>
         <ProtectedRoute path="/dashboard/group/:groupId" exact={true} authenticated={authenticated}>
-          
+          <GroupBoard />
         </ProtectedRoute>
         <Route path="/" exact={true} authenticated={authenticated}>
           <HomePage />

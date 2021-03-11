@@ -1,5 +1,6 @@
 const SET_GROUPS = 'groups/setGroups'
 const SET_PENDING_GROUPS = 'groups/setPendingGroups'
+const SET_GROUP_MEMBERS = 'groups/setGroupMembers'
 
 const setGroups = (groups) => {
     return {
@@ -12,6 +13,13 @@ const setPendingGroups = (groups) => {
     return {
         action: SET_PENDING_GROUPS,
         payload: groups
+    }
+}
+
+const setGroupMembers = (members) => {
+    return {
+        action: SET_GROUP_MEMBERS,
+        payload: members
     }
 }
 
@@ -33,6 +41,18 @@ export const getPendingGroups = () => async (dispatch) => {
     }
 }
 
+export const getGroupMembers = (id) => async (dispatch) => {
+    const response = await fetch("api/groups/members", {
+        method='POST',
+        body=JSON.stringify({id})
+    })
+
+    if(response.ok){
+        const members = await response.json()
+        dispatch(setGroupMembers(members))
+    }
+}
+
 const initialState = {}
 
 const groupReducer = (state = initialState, action ) => {
@@ -47,6 +67,10 @@ const groupReducer = (state = initialState, action ) => {
         case SET_PENDING_GROUPS:
             newState = Object.assign({}, state);
             newState.pendingGroups = action.payload;
+            return newState
+        case SET_GROUP_MEMBERS:
+            newState = Object.assign({}, state);
+            newState.groupMembers = action.payload
             return newState
         default:
             return state
