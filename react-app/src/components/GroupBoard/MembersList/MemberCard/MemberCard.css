@@ -1,0 +1,25 @@
+.member_card__container{
+    height: 15rem;
+    width: 15rem;
+    background-color: rgb(250,250,250);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: black;
+    margin: 3rem;
+    border-radius: .5rem;
+}
+
+.member_card__top{
+    display: flex;
+    justify-content: center;
+}
+.member_card__bottom{
+    margin-top: -1rem;
+    display: flex;
+    justify-content: center;
+}
+
+#member-image{
+    height: 5rem;
+}

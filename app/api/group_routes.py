@@ -29,8 +29,5 @@ def get_groups():
 @login_required
 def get_members():
     members = GroupMember.query.options(joinedload('users')).filter(GroupMember.accepted == True).all()
-
-
-    print("*************", {member.users.id: member.users.to_dict() for member in members} )
     return {member.users.id: member.users.to_dict() for member in members}
 
