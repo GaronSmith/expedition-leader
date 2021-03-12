@@ -18,7 +18,7 @@ const setPendingGroups = (groups) => {
 
 const setGroupMembers = (members) => {
     return {
-        action: SET_GROUP_MEMBERS,
+        type: SET_GROUP_MEMBERS,
         payload: members
     }
 }
@@ -42,9 +42,9 @@ export const getPendingGroups = () => async (dispatch) => {
 }
 
 export const getGroupMembers = (id) => async (dispatch) => {
-    const response = await fetch("api/groups/members", {
-        method='POST',
-        body=JSON.stringify({id})
+    const response = await fetch("/api/group/members", {
+        method:'POST',
+        body:JSON.stringify({id})
     })
 
     if(response.ok){

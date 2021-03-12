@@ -8,3 +8,5 @@ class GroupMember(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     accepted = db.Column(db.Boolean)
     leader = db.Column(db.Boolean)
+
+    users = db.relationship("User", backref=db.backref("group_acceptances", lazy=True))
