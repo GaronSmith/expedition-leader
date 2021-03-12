@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt, faUsers } from '@fortawesome/free-solid-svg-icons'
 import "./SideBarGroup.css"
+import MembersList from '../MembersList/MembersList'
 
 const SideBarGroup = ({ setView }) => {
     const usersOnClick = (e) => {
@@ -9,7 +10,7 @@ const SideBarGroup = ({ setView }) => {
 
         setView(
             <div className='main_container'>
-                <h1> test 2</h1>
+                <MembersList />
             </div>
         )
     }
