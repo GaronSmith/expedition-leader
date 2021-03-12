@@ -28,6 +28,8 @@ def get_groups():
 @group_routes.route('/members', methods=["POST"])
 @login_required
 def get_members():
-    members = GroupMember.query.options(joinedload('users')).filter(GroupMember.accepted == True).all()
+    data = json.loads(request.data)
+    id = data['id']
+    members = GroupMember.query.options(joinedload('users')).filter(and_(GroupMember.accepted == True, GroupMember.group_id == id)).all()
     return {member.users.id: member.users.to_dict() for member in members}
 

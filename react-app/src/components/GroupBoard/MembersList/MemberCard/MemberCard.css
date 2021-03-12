@@ -17,7 +17,9 @@
 .member_card__bottom{
     margin-top: -1rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 #member-image{
