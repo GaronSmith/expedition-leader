@@ -12,7 +12,7 @@ const NavBar = ({ setAuthenticated }) => {
     <nav >
       <div className='navbar__container'>
         <div className='navbar__container-left'>
-          <NavLink className='navbar__link' to="/" exact={true} activeClassName="active">
+          <NavLink className='navbar__link' to="/dashboard" exact={true} activeClassName="active">
             <h1>Home</h1>
               </NavLink>
         </div>
