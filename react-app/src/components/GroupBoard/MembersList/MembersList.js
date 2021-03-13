@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import AddMember from './AddMember'
 import MemberCard from './MemberCard'
 
 
@@ -25,6 +26,7 @@ const MembersList = () => {
                     {row.map(member => <MemberCard key={member.id} member={member} />)}
                 </div>
             })}
+            <AddMember />
 
         </div>
 
