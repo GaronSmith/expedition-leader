@@ -19,9 +19,9 @@ def get_groups():
     response = {"accepted":[], 'pending':[]}
     for group in groups:
         if(group.accepted):
-            response["accepted"].append(group.id)
+            response["accepted"].append(group.group_id)
         else:
-            response["pending"].append(group.id)
+            response["pending"].append(group.group_id)
 
     return response
 
@@ -32,4 +32,33 @@ def get_members():
     id = data['id']
     members = GroupMember.query.options(joinedload('users')).filter(and_(GroupMember.accepted == True, GroupMember.group_id == id)).all()
     return {member.users.id: member.users.to_dict() for member in members}
+
+@group_routes.route('/addmember', methods=['POST'])
+@login_required
+def add_member():
+    data = json.loads(request.data)
+    group_id = data['groupId']
+    user_id = data['userId']
+    member = GroupMember(
+        group_id=group_id,
+        user_id=user_id,
+        accepted=True,
+        leader=True
+    )
+    
+    db.session.add(member)
+    db.session.commit()
+    return {}
+
+@group_routes.route('/removemember', methods=["POST"])
+@login_required
+def remove_member():
+    data = json.loads(request.data)
+    group_id = data['groupId']
+    user_id = data['userId']
+    GroupMember.query.filter(and_(GroupMember.group_id == group_id, GroupMember.user_id == user_id)).delete()
+    db.session.commit()
+
+    return {}
+
 
