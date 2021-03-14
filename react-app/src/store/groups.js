@@ -101,7 +101,8 @@ const groupReducer = (state = initialState, action ) => {
             return newState
         case REMOVE_GROUP_MEMBER:
             newState = Object.assign({}, state);
-            delete newState.groupMembers[action.payload.id]
+            console.log('******', newState.groupMembers[action.payload.id])
+            delete newState.groupMembers[action.payload]
             return newState
         default:
             return state

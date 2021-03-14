@@ -1,0 +1,24 @@
+.form__content-container{
+    background-color: rgb(250,250,250);
+    border-radius: .3rem;
+    padding: 1rem 2.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.search-wrapper, .searchBox{
+    color:rgb(197,198,200);
+}
+.chip{
+    background-color: rgb(70,162,159);
+}
+
+.icon_cancel{
+    color:rgb(143,0,45);
+}
+
+.option{
+    background-color: rgb(102,132,132);
+    color: rgb(197,198,200);
+}

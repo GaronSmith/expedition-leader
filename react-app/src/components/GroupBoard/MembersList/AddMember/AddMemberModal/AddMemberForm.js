@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {Multiselect} from 'multiselect-react-dropdown'
 import { useParams } from 'react-router'
 
-import './AddMemberForm'
+import './AddMemberForm.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { addGroupMember, removeGroupMember } from '../../../../../store/groups'
 
