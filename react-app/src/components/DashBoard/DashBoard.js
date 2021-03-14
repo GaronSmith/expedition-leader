@@ -9,7 +9,9 @@ import SideBar from './SideBar'
 const DashBoard = () => {
     const user = useSelector(state => state.session.user)
     const [view, setView] = useState(
-   <h1>test</h1>)
+        <div className='main_container'>
+            <GearBox />
+        </div>)
 
    const dispatch = useDispatch()
    useEffect(() => {
