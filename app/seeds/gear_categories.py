@@ -2,7 +2,7 @@ from app.models import db, GearCategory
 
 def seed_categories():
 
-    categories = ['Ascenders/Descenders', 'Belay Devices', 'Damming Devices', \
+    categories = ['Ascenders/Descenders', 'Belay Devices', \
                   'Camming Devices', 'Carabiners', 'Climbing Shoes', 'Rope', \
                   'Passive Protection', 'Quickdraws', 'Harnesses', 'Other']\
 

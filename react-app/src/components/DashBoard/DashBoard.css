@@ -5,6 +5,7 @@
     width: 100%;
     background-color: rgba(52,59,64,.2);
     height: 100vh;
+    overflow-y: scroll;
 }
 
 .main_container{
