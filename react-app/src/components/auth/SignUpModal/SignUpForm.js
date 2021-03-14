@@ -30,7 +30,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
       if (!user.errors) {
         setAuthenticated(true);
         dispatch(setUser(user))
-        history.push('/')
+        history.push('/dashboard')
       } else {
         setErrors(user.errors);
       }
