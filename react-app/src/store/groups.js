@@ -1,5 +1,7 @@
 const SET_GROUPS = 'groups/setGroups'
 const SET_PENDING_GROUPS = 'groups/setPendingGroups'
+const SET_GROUP_MEMBERS = 'groups/setGroupMembers'
+const REMOVE_GROUP_MEMBER = 'groups/removeMember'
 
 const setGroups = (groups) => {
     return {
@@ -15,6 +17,19 @@ const setPendingGroups = (groups) => {
     }
 }
 
+const setGroupMembers = (members) => {
+    return {
+        type: SET_GROUP_MEMBERS,
+        payload: members
+    }
+}
+
+const removeMember = (id) => {
+    return {
+        type: REMOVE_GROUP_MEMBER,
+        payload: id
+    }
+}
 export const getCurrentGroups = () => async (dispatch) => {
     const response = await fetch('/api/group/')
 
@@ -33,6 +48,38 @@ export const getPendingGroups = () => async (dispatch) => {
     }
 }
 
+export const getGroupMembers = (id) => async (dispatch) => {
+    const response = await fetch("/api/group/members", {
+        method:'POST',
+        body:JSON.stringify({id})
+    })
+
+    if(response.ok){
+        const members = await response.json()
+        dispatch(setGroupMembers(members))
+    }
+}
+
+export const addGroupMember = (groupId, userId) => async (dispatch) => {
+    const response = await fetch("/api/group/addmember", {
+        method: 'POST',
+        body: JSON.stringify({groupId, userId})
+    })
+
+    if (response.ok){
+        return 
+    }
+}
+
+export const removeGroupMember = (groupId, userId) => async (dispatch) => {
+    const response = await fetch("/api/group/removemember", {
+        method:'POST',
+        body:JSON.stringify({groupId, userId}),
+    })
+
+    dispatch(removeMember(userId))
+}
+
 const initialState = {}
 
 const groupReducer = (state = initialState, action ) => {
@@ -47,6 +94,15 @@ const groupReducer = (state = initialState, action ) => {
         case SET_PENDING_GROUPS:
             newState = Object.assign({}, state);
             newState.pendingGroups = action.payload;
+            return newState
+        case SET_GROUP_MEMBERS:
+            newState = Object.assign({}, state);
+            newState.groupMembers = action.payload
+            return newState
+        case REMOVE_GROUP_MEMBER:
+            newState = Object.assign({}, state);
+            console.log('******', newState.groupMembers[action.payload.id])
+            delete newState.groupMembers[action.payload]
             return newState
         default:
             return state

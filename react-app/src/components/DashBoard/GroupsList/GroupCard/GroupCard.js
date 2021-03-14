@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './GroupCard.css'
 
@@ -9,8 +10,7 @@ const GroupCard = ({group}) => {
                 <img id='group-image' src={group.image_url} alt='text'/>
             </div>
             <div className='group_card__bottom'>
-                <p id='group-name'>{group.name}</p>
-                
+                <Link id='group-name' to={`/dashboard/group/${group.id}`}>{group.name}</Link>
             </div>
         </div>
     )

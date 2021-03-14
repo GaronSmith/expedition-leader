@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
 import { useDispatch } from "react-redux";
 import { setUser } from "./store/session";
 import HomePage from "./components/HomePage";
 import DashBoard from "./components/DashBoard";
+import GroupBoard from "./components/GroupBoard";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -37,8 +37,8 @@ function App() {
         <ProtectedRoute path="/dashboard" exact={true} authenticated={authenticated}>
           <DashBoard />
         </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
-          <User />
+        <ProtectedRoute path="/dashboard/group/:groupId" exact={true} authenticated={authenticated}>
+          <GroupBoard />
         </ProtectedRoute>
         <Route path="/" exact={true} authenticated={authenticated}>
           <HomePage />
