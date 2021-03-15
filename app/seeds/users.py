@@ -14,6 +14,7 @@ def seed_users():
                 profile_image_url='https://expedition-leader.s3.us-east-2.amazonaws.com/Screen+Shot+2021-03-08+at+9.26.26+AM.png')
 
     db.session.add(demo)
+    db.session.commit()
 
     garon = User(email='wgaronsmith13@gmail.com',
                  password='password',
@@ -24,6 +25,7 @@ def seed_users():
                  profile_image_url='https://expedition-leader.s3.us-east-2.amazonaws.com/Screen+Shot+2021-03-08+at+9.26.26+AM.png')
     
     db.session.add(garon)
+    db.session.commit()
 
     frank = User(email='wgaronsmith14@gmail.com',
                  password='password',
@@ -33,7 +35,6 @@ def seed_users():
                  created_at=datetime.today(),
                  profile_image_url='https://expedition-leader.s3.us-east-2.amazonaws.com/Screen+Shot+2021-03-08+at+9.26.26+AM.png')
     db.session.add(frank)
-
     db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE the users table.
