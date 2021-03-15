@@ -10,9 +10,29 @@ def seed_users():
                 first_name='Demo',
                 last_name='User',
                 qr_image_url='/thisisatest',
-                created_at=datetime.today())
+                created_at=datetime.today(),
+                profile_image_url='https://expedition-leader.s3.us-east-2.amazonaws.com/Screen+Shot+2021-03-08+at+9.26.26+AM.png')
 
     db.session.add(demo)
+
+    garon = User(email='wgaronsmith13@gmail.com',
+                 password='password',
+                 first_name='Garon',
+                 last_name='Smith',
+                 qr_image_url='/thisisatest',
+                 created_at=datetime.today(),
+                 profile_image_url='https://expedition-leader.s3.us-east-2.amazonaws.com/Screen+Shot+2021-03-08+at+9.26.26+AM.png')
+    
+    db.session.add(garon)
+
+    frank = User(email='wgaronsmith14@gmail.com',
+                 password='password',
+                 first_name='Frank',
+                 last_name='Smith',
+                 qr_image_url='/thisisatest',
+                 created_at=datetime.today(),
+                 profile_image_url='https://expedition-leader.s3.us-east-2.amazonaws.com/Screen+Shot+2021-03-08+at+9.26.26+AM.png')
+    db.session.add(frank)
 
     db.session.commit()
 
