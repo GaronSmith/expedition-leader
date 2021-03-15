@@ -1,7 +1,7 @@
 from app.models import db, Group
 
 
-def seed_Groups():
+def seed_groups():
 
     groups = ['North London Mountaineering Club', 'Brooklyn Boulders', 'The Castle']\
     
@@ -12,12 +12,12 @@ def seed_Groups():
         ]
 
     for i in range(len(groups)):
-        new_group = Group(name=group[i], image_url=image_urls[i])
+        new_group = Group(name=groups[i], image_url=image_urls[i])
         db.session.add(new_group)
 
     db.session.commit()
 
 
-def undo_categories():
+def undo_groups():
     db.session.execute('TRUNCATE gear_categories CASCADE;')
     db.session.commit()
