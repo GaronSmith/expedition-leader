@@ -1,3 +1,3 @@
-import AddMember from './AddMember'
+import AddTrip from './AddTrip'
 
-export default AddMember
+export default AddTrip
