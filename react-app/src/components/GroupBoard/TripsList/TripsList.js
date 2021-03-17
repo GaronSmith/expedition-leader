@@ -1,36 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import AddMember from './AddMember'
-import MemberCard from './MemberCard'
+import AddTrip from './AddTrip'
+import TripCard from './TripCard'
 
 
-import './MembersList.css'
+import './TripsList.css'
 
-const MembersList = () => {
-    const members = useSelector(state => Object.values(state.groups.groupMembers))
+const TripsList = () => {
+    const trips = useSelector(state => Object.values(state.groups.groupMembers))
 
-    const [memberRows, setMemberRows] = useState([])
+    const [tripsRows, setTripsRows] = useState([])
     useEffect(() => {
-        if (members) {
-            const rows = [...Array(Math.ceil(members.length / 4))];
-            const memberArr = rows.map((row, idx) => members.slice(idx * 4, idx * 4 + 4));
-            setMemberRows(memberArr)
+        if (trips) {
+            const rows = [...Array(Math.ceil(trips.length / 4))];
+            const tripArr = rows.map((row, idx) => trips.slice(idx * 4, idx * 4 + 4));
+            setTripsRows(tripArr)
             
         }
     }, [])
 
     return (
         <div className='memberslist__container'>
-            {memberRows && memberRows.map((row, idx) => {
+            {tripsRows && tripsRows.map((row, idx) => {
                 return <div className="tag__row" key={idx}>
-                    {row.map(member => <MemberCard key={member.id} member={member} />)}
+                    {row.map(trip => <TripCard key={trip.id} trip={trip} />)}
                 </div>
             })}
-            <AddMember />
+            <AddTrip />
 
         </div>
 
     )
 }
 
-export default MembersList
+export default TripsList
