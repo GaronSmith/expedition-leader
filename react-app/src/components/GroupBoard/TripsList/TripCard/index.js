@@ -1,3 +1,3 @@
-import MemberCard from './MemberCard'
+import TripCard from './TripCard'
 
-export default MemberCard
+export default TripCard

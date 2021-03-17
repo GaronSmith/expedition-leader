@@ -1,3 +1,3 @@
-import MembersList from './MembersList'
+import TripsList from './TripsList'
 
-export default MembersList
+export default TripsList
