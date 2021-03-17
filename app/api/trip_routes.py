@@ -10,7 +10,7 @@ trip_routes = Blueprint("trip", __name__)
 @login_required
 def get_group_trips():
     data = json.loads(request.data)
-    group_id= data['groupId']
+    group_id= data['group_id']
 
     trips = Trip.query.filter(Trip.group_id == group_id).all()
 

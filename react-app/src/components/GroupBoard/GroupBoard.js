@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-import { getGroupMembers } from '../../store/groups'
+import { getGroupMembers, getGroupTrips } from '../../store/groups'
 
 import './GroupBoard.css'
 import MembersList from './MembersList/MembersList'
@@ -16,7 +16,7 @@ const GroupBoard = () => {
     useEffect(() => {
 
         dispatch(getGroupMembers(groupId))
-        dispatch()
+        dispatch(getGroupTrips(groupId))
     },[dispatch])
 
     return (

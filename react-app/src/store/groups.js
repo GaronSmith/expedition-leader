@@ -89,13 +89,13 @@ export const removeGroupMember = (groupId, userId) => async (dispatch) => {
     dispatch(removeMember(userId))
 }
 
-export const getGroupTrips = (groupId) = async (dispatch) => {
+export const getGroupTrips = (group_id) => async (dispatch) => {
     const response = await fetch("/api/trips", {
         method:'POST',
-        body:JSON.stringify({groupId}),
+        body:JSON.stringify({group_id}),
     })
     if(response.ok){
-        trips = await response.json()
+        const trips = await response.json()
         dispatch(addTrips(trips))
     }
     
