@@ -16,6 +16,7 @@ const GroupBoard = () => {
     useEffect(() => {
 
         dispatch(getGroupMembers(groupId))
+        dispatch()
     },[dispatch])
 
     return (

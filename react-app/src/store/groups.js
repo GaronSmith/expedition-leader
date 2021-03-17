@@ -2,6 +2,7 @@ const SET_GROUPS = 'groups/setGroups'
 const SET_PENDING_GROUPS = 'groups/setPendingGroups'
 const SET_GROUP_MEMBERS = 'groups/setGroupMembers'
 const REMOVE_GROUP_MEMBER = 'groups/removeMember'
+const ADD_TRIPS = "groups/addTrips"
 
 const setGroups = (groups) => {
     return {
@@ -30,6 +31,14 @@ const removeMember = (id) => {
         payload: id
     }
 }
+
+const addTrips = (trips) => {
+    return {
+        type: ADD_TRIPS,
+        payload:trips
+    }
+}
+
 export const getCurrentGroups = () => async (dispatch) => {
     const response = await fetch('/api/group/')
 
@@ -78,6 +87,18 @@ export const removeGroupMember = (groupId, userId) => async (dispatch) => {
     })
 
     dispatch(removeMember(userId))
+}
+
+export const getGroupTrips = (groupId) = async (dispatch) => {
+    const response = await fetch("/api/trips", {
+        method:'POST',
+        body:JSON.stringify({groupId}),
+    })
+    if(response.ok){
+        trips = await response.json()
+        dispatch(addTrips(trips))
+    }
+    
 }
 
 const initialState = {}
