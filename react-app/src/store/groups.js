@@ -90,7 +90,7 @@ export const removeGroupMember = (groupId, userId) => async (dispatch) => {
 }
 
 export const getGroupTrips = (group_id) => async (dispatch) => {
-    const response = await fetch("/api/trips", {
+    const response = await fetch("/api/trip/", {
         method:'POST',
         body:JSON.stringify({group_id}),
     })
@@ -122,8 +122,11 @@ const groupReducer = (state = initialState, action ) => {
             return newState
         case REMOVE_GROUP_MEMBER:
             newState = Object.assign({}, state);
-            console.log('******', newState.groupMembers[action.payload.id])
             delete newState.groupMembers[action.payload]
+            return newState
+        case ADD_TRIPS:
+            newState = Object.assign({}, state);
+            newState.trips = action.payload
             return newState
         default:
             return state
