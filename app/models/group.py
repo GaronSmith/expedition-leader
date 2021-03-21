@@ -14,6 +14,6 @@ class Group(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "trips": self.trips,
+            "trips": {trip.id:trip.to_dict() for trip in self.trips},
             "image_url":self.image_url
         }
