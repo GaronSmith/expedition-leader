@@ -16,17 +16,10 @@ try:
             "S3_SECRET_ACCESS_KEY"),
     )
     aws_access_key_id = os.environ.get("S3_ACCESS_KEY")
-    print("*****************", aws_access_key_id)
 except Exception as e:
     print(f"S3 ERROR: {e}")
 
 S3_BUCKET = os.environ.get("S3_BUCKET")
-
-# try:
-#     S3_BUCKET_SERVER = s3.get_bucket_location(Bucket=S3_BUCKET)[
-#         'LocationConstraint']
-# except Exception as e:
-#     print(f"S3 ERROR: {e}")
 
 S3_LOCATION = f"http://{S3_BUCKET}.s3.amazonaws.com/"
 
