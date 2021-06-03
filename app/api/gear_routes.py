@@ -12,7 +12,6 @@ gear_routes = Blueprint('gear', __name__)
 @gear_routes.route("/categories", methods=["GET"])
 @login_required
 def get_gear():
-    print('*******',current_user)
     categories = GearCategory.query.all()
     return {cat.id: {"id": cat.id, "name":cat.name} for cat in categories}
 
